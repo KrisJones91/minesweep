@@ -8,5 +8,14 @@ document.addEventListener('DOMContentLoaded', () => {
   let squares = []
   let isGameOver = false
 
+  //create Board
+  function createBoard() {
+      // @ts-ignore
+      flagsLeft.innerHTML = bombAmount
+      
+    //get shuffled game array with random bombs
+    const bombsArray = Array(bombAmount).fill('bomb')
+    const emptyArray = Array(width*width - bombAmount).fill('valid')
+    const gameArray = emptyArray.concat(bombsArray)
 
 })
