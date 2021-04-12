@@ -17,5 +17,5 @@ document.addEventListener('DOMContentLoaded', () => {
     const bombsArray = Array(bombAmount).fill('bomb')
     const emptyArray = Array(width*width - bombAmount).fill('valid')
     const gameArray = emptyArray.concat(bombsArray)
-
-})
+    const shuffledArray = gameArray.sort(() => Math.random() -0.5)
+}
