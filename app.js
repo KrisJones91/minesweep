@@ -28,9 +28,11 @@ document.addEventListener('DOMContentLoaded', () => {
             squares.push(square)
 
 
-
+      //normal click
+      square.addEventListener('click', function(e) {
+        click(square)
+      })
 
 
         }
-    }
-}
+
