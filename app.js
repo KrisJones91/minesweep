@@ -28,11 +28,27 @@ document.addEventListener('DOMContentLoaded', () => {
             squares.push(square)
 
 
-      //normal click
-      square.addEventListener('click', function(e) {
-        click(square)
-      })
+            //normal click
+            square.addEventListener('click', function (e) {
+                //need function --
+                click(square)
+            })
 
-
+            //cntrl and left click
+            square.oncontextmenu = function (e) {
+                e.preventDefault()
+                //need function -- 
+                addFlag(square)
+            }
         }
 
+
+
+
+
+
+
+
+    }
+}
+    
