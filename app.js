@@ -70,12 +70,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 square.classList.add('flag')
                 square.innerHTML = ' 🚩'
                 flags++
+                // @ts-ignore
                 flagsLeft.innerHTML = bombAmount - flags
                 checkForWin()
             } else {
                 square.classList.remove('flag')
                 square.innerHTML = ''
-
+                flags --
+                // @ts-ignore
+                flagsLeft.innerHTML = bombAmount- flags
             }
         }
     }
