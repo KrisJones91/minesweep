@@ -73,7 +73,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 flagsLeft.innerHTML = bombAmount - flags
                 checkForWin()
             } else {
-
+        square.classList.remove('flag')
+        square.innerHTML = ''
             }
         }
     }
