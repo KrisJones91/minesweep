@@ -75,8 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 square.classList.remove('flag')
                 square.innerHTML = ''
-                flags --
-                flagsLeft.innerHTML = bombAmount- flags
+
             }
         }
     }
