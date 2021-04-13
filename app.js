@@ -76,35 +76,47 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 square.classList.remove('flag')
                 square.innerHTML = ''
-                flags --
+                flags--
                 // @ts-ignore
-                flagsLeft.innerHTML = bombAmount- flags
+                flagsLeft.innerHTML = bombAmount - flags
             }
         }
     }
     
-      //click on square actions
-  function click(square) {
-    let currentId = square.id
-    if (isGameOver) return
-    if (square.classList.contains('checked') || square.classList.contains('flag')) return
-    if (square.classList.contains('bomb')) {
-      gameOver(square)
-    } else {
-      let total = square.getAttribute('data')
-      if (total !=0) {
+    //click on square actions
+    function click(square) {
+        let currentId = square.id
+        if (isGameOver) return
+        if (square.classList.contains('checked') || square.classList.contains('flag')) return
+        if (square.classList.contains('bomb')) {
+            gameOver(square)
+        } else {
+            let total = square.getAttribute('data')
+            if (total != 0) {
+                square.classList.add('checked')
+                if (total == 1) square.classList.add('one')
+                if (total == 2) square.classList.add('two')
+                if (total == 3) square.classList.add('three')
+                if (total == 4) square.classList.add('four')
+                square.innerHTML = total
+                return
+            }
+            checkSquare(square, currentId)
+        }
         square.classList.add('checked')
-        if (total == 1) square.classList.add('one')
-        if (total == 2) square.classList.add('two')
-        if (total == 3) square.classList.add('three')
-        if (total == 4) square.classList.add('four')
-        square.innerHTML = total
-        return
-      }
-      checkSquare(square, currentId)
     }
-    square.classList.add('checked')
-  }
     
+    //check neighboring squares once square is clicked
+    function checkSquare(square, currentId) {
+        const isLeftEdge = (currentId % width === 0)
+        const isRightEdge = (currentId % width === width - 1)
+        setTimeout(() => {
+            if (currentId > 0 && !isLeftEdge) {
+                const newId = squares[parseInt(currentId) - 1].id
+                //const newId = parseInt(currentId) - 1   ....refactor
+                const newSquare = document.getElementById(newId)
+                click(newSquare)
+            }
+        }
+            
     
-}
