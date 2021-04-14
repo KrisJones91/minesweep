@@ -144,6 +144,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 const newSquare = document.getElementById(newId)
                 click(newSquare)
             }
+            if (currentId < 88 && !isRightEdge) {
+                const newId = squares[parseInt(currentId) +1 +width].id
+                //const newId = parseInt(currentId) +1 +width   ....refactor
+                const newSquare = document.getElementById(newId)
+                click(newSquare)
+             }
+            if (currentId < 89) {
+                const newId = squares[parseInt(currentId) +width].id
+                //const newId = parseInt(currentId) +width   ....refactor
+                const newSquare = document.getElementById(newId)
+             click(newSquare)
+            }
+            }, 10)
         }
             
     
