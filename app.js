@@ -123,6 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 click(newSquare)
             }
             if (currentId > 10) {
+                // @ts-ignore
                 const newId = squares[parseInt(currentId -width)].id 
                 const newSquare = document.getElementById(newId)
                 click(newSquare)
@@ -174,3 +175,20 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     })
   }
+    
+      //check for win
+  function checkForWin() {
+    ///simplified win argument
+  let matches = 0
+
+    for (let i = 0; i < squares.length; i++) {
+      if (squares[i].classList.contains('flag') && squares[i].classList.contains('bomb')) {
+        matches ++
+      }
+      if (matches === bombAmount) {
+        result.innerHTML = 'YOU WIN!'
+        isGameOver = true
+      }
+    }
+  }
+})
